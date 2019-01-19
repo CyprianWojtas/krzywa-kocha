@@ -5,32 +5,16 @@ ctx.lineWidth = 1;
 var	x = 4096,
 	y = 4096,
 	skala = 1;
-		
+	
+let pierw3 = Math.sqrt(3);
+
 function Podziel (a, c, b, d)
 {
 	let p0 = [a, c];
 	let p1 = [(b - a) / 3 + a, (d - c) / 3 + c];
 	let p3 = [2 * (b - a) / 3 + a, 2 * (d - c) / 3 + c];
-	let w1,
-		w2;
 	
-	let h = Math.sqrt((Math.pow(((b - a) / 3), 2)) + (Math.pow(((d - c) / 3), 2)));
-	
-	if (b == a)	w1 = 0;
-	else
-	{
-		w1 = Math.sqrt(1 / (1 + Math.pow(((d - c) / (b - a)), 2)));
-	}
-	if (d == c)	w2 = 0;
-	else
-	{
-		w2 = Math.sqrt(1 / (1 + Math.pow(((b - a) / (d - c)), 2)));
-	}
-	
-	if (a < b) w1 = -w1;
-	if (c > d) w2 = -w2;
-	
-	let p2 = [w2 * h + (b - a) / 2 + a, w1 * h + (d - c) / 2 + c];
+	let p2 = [(pierw3 * (p3[1] - p1[1]) + p1[0] + p3[0]) / 2, (pierw3 * (p1[0] - p3[0]) + p1[1] + p3[1]) / 2];
 	
 	return [p0, p1, p2, p3];
 }
@@ -60,9 +44,9 @@ function Generuj (stopien)
 	
 	p =
 	[
-		[0, -4000],
-		[3000, 2000],
-		[-3000, 2000]
+		[0, -3464.10161514],
+		[3000, 1732.05080757],
+		[-3000, 1732.05080757]
 	];
 	
 	for (let j = 0; j < stopien; j++)
